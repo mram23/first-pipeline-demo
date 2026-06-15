@@ -3,23 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Page</title>
+    <title>DevOps Lab</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', monospace;
+            background-color: #0d1117;
+            color: #58a6ff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
         }
-        h1 {
-            color: #333;
+
+        .terminal {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 30px 40px;
+            width: 600px;
+            box-shadow: 0 0 30px rgba(88, 166, 255, 0.1);
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot.red   { background-color: #ff5f57; }
+        .dot.yellow{ background-color: #febc2e; }
+        .dot.green { background-color: #28c840; }
+
+        .line {
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .prompt { color: #3fb950; }
+        .command { color: #e6edf3; }
+        .output { color: #8b949e; }
+        .success { color: #3fb950; }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 14px;
+            background-color: #58a6ff;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="dot red"></div>
+            <div class="dot yellow"></div>
+            <div class="dot green"></div>
+        </div>
+        <div class="line"><span class="prompt">mrv@devops-lab-1:~$</span> <span class="command">jenkins --status</span></div>
+        <div class="line output">Connecting to Jenkins controller...</div>
+        <div class="line output">Fetching pipeline status...</div>
+        <div class="line success">✔ WebAppPipeline build #1 — SUCCESS</div>
+        <div class="line success">✔ Deployed to /var/www/html</div>
+        <div class="line success">✔ Apache serving on port 80</div>
+        <div class="line">&nbsp;</div>
+        <div class="line"><span class="prompt">mrv@devops-lab-1:~$</span> <span class="cursor"></span></div>
+    </div>
 </body>
 </html>
